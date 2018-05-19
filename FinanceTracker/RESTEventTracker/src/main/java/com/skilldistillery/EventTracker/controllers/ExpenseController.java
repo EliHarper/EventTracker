@@ -1,5 +1,6 @@
 package com.skilldistillery.EventTracker.controllers;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,8 @@ public class ExpenseController {
 	}
 	
 	@RequestMapping(path = "expenses", method = RequestMethod.POST)
-	public Expense create(@RequestBody Expense c) {
+	public Expense create(@RequestBody Expense c) throws ParseException {
+		System.out.println(c);
 		return es.create(c);
 	}
 	

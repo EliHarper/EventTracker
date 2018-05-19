@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `expenses` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(45) NULL,
   `amount` DECIMAL(8,2) NULL,
-  `date` DATETIME NULL,
+  `date` DATETIME NOT NULL DEFAULT current_timestamp,
   `expected` VARCHAR(45) NULL,
   `impulse` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))

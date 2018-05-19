@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>REST Expense Tracker</title>
+<script type="text/javascript" src="js/expenseFunctions.js"></script>
+</head>
+<body>
+  <h1>Welcome to Your Expense Tracker</h1>
+
+  <form name="expenseForm">
+    <input type="number" name="expenseId">
+    <button name="lookup">Get Expense by Id</button>
+  </form>
+  
+  <div id="output">
+    <!-- <div id="actorData"></div>  -->
+  </div>
+  
+  <form name="addExpenseForm">
+    <input type="text" name="category" value="Category">
+    <input type="text" name="amount" value="Amount">
+    <input type="text" name="expected" value="Expected">
+    <input type="text" name="impulse" value="Impulse">
+    <button type="submit" name="addExpense">Add Expense</button>
+  </form>
+
+    <div id="expenseData"></div>
+  	<div id="indexData"></div>
+    
+</body>
+</html>

@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="expenses")
@@ -27,7 +26,6 @@ public class Expense {
 	
 	private String impulse;
 	
-	@CreationTimestamp
 	@Temporal(value= TemporalType.TIMESTAMP)
 	private Date date;
 	
@@ -87,8 +85,8 @@ public class Expense {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(java.util.Date date2) {
+		this.date = (Date) date2;
 	}
 
 	public int getId() {
