@@ -47,6 +47,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `financedb`;
+
 INSERT INTO `expenses` (`id`, `category`, `amount`, `date`, `expected`, `impulse`) VALUES (1, 'Rent', 750.00, '5/1/18', 'YES', NULL);
 INSERT INTO `expenses` (`id`, `category`, `amount`, `date`, `expected`, `impulse`) VALUES (2, 'Gas/Transportation', 38.46, '5/5/18', 'YES', NULL);
 INSERT INTO `expenses` (`id`, `category`, `amount`, `date`, `expected`, `impulse`) VALUES (3, 'Groceries', 50.25, '5/6/18', 'YES', NULL);

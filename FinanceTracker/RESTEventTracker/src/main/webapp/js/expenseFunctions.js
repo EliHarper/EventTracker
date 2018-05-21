@@ -197,7 +197,7 @@ function aggregate(expenses) {
     var div = document.getElementById('indexData');
     var headerCost = document.createElement('h5');
     div.appendChild(headerCost);
-    headerCost.textContent = "Total expense: " + totalCost;
+    headerCost.textContent = "Total expense: $" + totalCost.toFixed(2);
     var headerNumber = document.createElement('h5');
     div.appendChild(headerNumber);
     headerNumber.textContent = "Number of entries: " + totalExpenses;
