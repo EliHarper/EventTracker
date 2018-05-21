@@ -1,14 +1,10 @@
 package com.skilldistillery.eventtracker.entities;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 @Entity
@@ -26,14 +22,13 @@ public class Expense {
 	
 	private String impulse;
 	
-	@Temporal(value= TemporalType.TIMESTAMP)
-	private Date date;
+	private String date;
 	
 	public Expense() {
 		
 	}
 
-	public Expense(int id, String category, double amount, String expected, String impulse, Date date) {
+	public Expense(int id, String category, double amount, String expected, String impulse, String date) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -81,12 +76,12 @@ public class Expense {
 		this.impulse = impulse;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(java.util.Date date2) {
-		this.date = (Date) date2;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public int getId() {

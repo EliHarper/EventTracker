@@ -21,8 +21,15 @@
   <form name="addExpenseForm">
     <input type="text" name="category" value="Category">
     <input type="text" name="amount" value="Amount">
-    <input type="text" name="expected" value="Expected">
-    <input type="text" name="impulse" value="Impulse">
+    <select name="expected">
+    	<option value="Yes">Yes</option>
+    	<option value="No">No</option>
+    </select>
+    <select name="impulse">
+    	<option value="Yes">Yes</option>
+    	<option value="No">No</option>
+    </select>
+    <input type="date" name="date">
     <button type="submit" name="addExpense">Add Expense</button>
   </form>
 

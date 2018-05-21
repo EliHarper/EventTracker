@@ -32,7 +32,6 @@ public class ExpenseController {
 	
 	@RequestMapping(path = "expenses", method = RequestMethod.POST)
 	public Expense create(@RequestBody Expense c) throws ParseException {
-		System.out.println(c);
 		return es.create(c);
 	}
 	
