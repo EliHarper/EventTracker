@@ -7,6 +7,7 @@
 #### Technologies Used:
 
 * Spring Tool Suite
+* JavaScript with JSON conversion
 * REST
 * JPA
 * VS Code
@@ -47,4 +48,5 @@ After navigating to "localhost:8080/expenses/{id}" (GET), a user will be able to
 
 "localhost:8080/expenses/{id}" (PUT)/(PATCH)/(DELETE) will allow a user to replace, update or delete an entry, respectively.
 
-All routes created exclusively accept JSON entries, as the front end of this specific application will be created next weekend.
+After implementing a front-end which functions dynamically with JS, navigation to localhost:8080 provides the user with an index of all of their expenses.
+Expenses can be modified/destroyed from the index, and a form at the top of the page allows users to add new expenses.
