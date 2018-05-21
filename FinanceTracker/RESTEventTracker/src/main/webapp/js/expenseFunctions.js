@@ -187,6 +187,21 @@ function loadExpenseIndex() {
     xhr.send(expenses);
 }
 
+function aggregate(expenses) {
+    var totalCost = 0;
+    var totalExpenses = 0;
+    expenses.forEach(expense => {
+        totalCost += expense.amount;
+        totalExpenses++;
+    });
+    var div = document.getElementById('indexData');
+    var headerCost = document.createElement('h5');
+    div.appendChild(headerCost);
+    headerCost.textContent = "Total expense: " + totalCost;
+    var headerNumber = document.createElement('h5');
+    div.appendChild(headerNumber);
+    headerNumber.textContent = "Number of entries: " + totalExpenses;
+}
 
 function displayExpenseIndex(expenses) {
     var div = document.getElementById('indexData');
@@ -196,20 +211,20 @@ function displayExpenseIndex(expenses) {
     for (let index = 0; index < expenses.length; index++) {
         var tr = document.createElement('tr');
         table.appendChild(tr);
-
+        
         var jsId = document.createElement('td');
         jsId.textContent = expenses[index].id;
         tr.appendChild(jsId);
-
+        
         var td = document.createElement('td');
         td.textContent = expenses[index].category;
         tr.appendChild(td);
-
+        
         var td = document.createElement('td');
         td.textContent = "$" + expenses[index].amount;
-
+        
         var td = document.createElement('td');
-
+        
         tr.addEventListener('click', function (evt) {
             var cell = evt.target;
             console.log(cell.parentElement.firstElementChild.innerText);
@@ -219,7 +234,7 @@ function displayExpenseIndex(expenses) {
             }
         });
     };
-
+    aggregate(expenses);
 }
 
 var data = '';
