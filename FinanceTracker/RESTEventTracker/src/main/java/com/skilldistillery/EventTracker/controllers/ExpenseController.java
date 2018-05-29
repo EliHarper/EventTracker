@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.skilldistillery.eventtracker.entities.Expense;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({"*", "http://localhost:4200"})
 public class ExpenseController {
 	
 	@Autowired
@@ -42,6 +44,8 @@ public class ExpenseController {
 	
 	@RequestMapping(path= "expenses/{id}", method = RequestMethod.PUT)
 	public Expense update(@RequestBody Expense e, @PathVariable int id) {
+//		2018-05-26
+//		5/26/18
 		return es.replace(e, id);
 	}
 	

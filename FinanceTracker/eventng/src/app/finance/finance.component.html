@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<h1> {{title}} </h1>
+
+<table class = "table table-striped table-dark" *ngIf="!selected">
+  <!-- <input type="checkbox" [(ngModel)]="showComplete"> -->
+  <!-- id: number;
+  category: string;
+  amount: number;
+  expected: string;
+  impulse: string;
+  date: string; -->
+
+  <thead class= "table-dark">
+    <th>ID</th>
+    <th>Category</th>
+    <th>Amount</th>
+    <th>Remove</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let finance of finances">
+      <td> {{ finance.id }} </td>
+      <td (click)="displayFinance(finance)"> {{ finance.category }} </td>
+      <td> {{ finance.amount | currency }} </td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteFinance(finance.id)">X</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selected && !editFinance">
+
+    <ul>
+      <li>ID: {{ selected.id }}</li>
+      <li>Amount: {{ selected.amount }}</li>
+      <li>Category: {{ selected.category }} </li>
+      <li>Expected: {{ selected.expected }}</li>
+      <li>Impulse: {{ selected.impulse }}</li>
+      <li>Date: {{ selected.date }}</li>
+    </ul>
+
+    <button type="button" class="btn btn-warning"(click)="setEditFinance(selected)">Edit</button>
+    <button (click)="displayTable()">Back to List</button>
+
+  </div>
+
+  <form *ngIf="editFinance">
+      <input type="text" name="task" placeholder="Category" [(ngModel)]="editFinance.category" />
+      <br>
+      <select [(ngModel)]="editFinance.expected" name="expected" placeholder="Expected">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+      </select>
+
+      <select [(ngModel)]="editFinance.impulse" name="impulse" placeholder="Impulse">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+      </select>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="updateFinance(editFinance.id, editFinance)">Save</button>
+      <button type="button" class="btn btn-light" (click)="editFinance = null">Cancel</button>
+  </form>
+
+  <br>
+    <form *ngIf="!selected">
+      Add an Expense: <br>
+      <input type="text" name="category" placeholder="Category" [(ngModel)]="finance.category" />
+      <input type="number" min="0.00" max="1000000.00" step="0.01"  placeholder="Amount" [(ngModel)]="finance.amount" name="amount"/>
+      <br>
+      <select [(ngModel)]="finance.expected" name="expected"  placeholder="Expected">
+          <option value="YES">YES</option>
+          <option value="NO">NO</option>
+        </select>
+
+        <br>
+        <select [(ngModel)]="finance.impulse" name="impulse" placeholder="Impulse">
+          <option value="YES">YES</option>
+          <option value="NO">NO</option>
+        </select>
+        <br>
+      <button type="button" class="btn btn-success" (click)="addFinance()">Submit</button>
+    </form>
